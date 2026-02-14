@@ -1,33 +1,33 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import Loader from "./components/admin/Loader"; // Optional: Use your Loader component
+import Loader from "./Components/admin/Loader"; // Optional: Use your Loader component
 
 // 1. Main Pages
-const Home = lazy(() => import("./pages/Home.jsx"));
-const Cart = lazy(() => import("./pages/Cart.jsx"));
-const Search = lazy(() => import("./pages/Search.jsx"));
+const Home = lazy(() => import("./Pages/Home.jsx"));
+const Cart = lazy(() => import("./Pages/Cart.jsx"));
+const Search = lazy(() => import("./Pages/Search.jsx"));
 
 // 2. Admin Dashboard Main Pages
-const Dashboard = lazy(() => import("./pages/admin/Dashboard.jsx"));
-const Products = lazy(() => import("./pages/admin/Products.jsx"));
-const Customers = lazy(() => import("./pages/admin/Customers.jsx"));
-const Transaction = lazy(() => import("./pages/admin/Transaction.jsx"));
+const Dashboard = lazy(() => import("./Pages/admin/Dashboard.jsx"));
+const Products = lazy(() => import("./Pages/admin/Products.jsx"));
+const Customers = lazy(() => import("./Pages/admin/Customers.jsx"));
+const Transaction = lazy(() => import("./Pages/admin/Transaction.jsx"));
 
 // 3. Admin Charts (Inside /charts folder)
-const Barcharts = lazy(() => import("./pages/admin/charts/BarCharts.jsx"));
-const Piecharts = lazy(() => import("./pages/admin/charts/PieCharts.jsx"));
-const Linecharts = lazy(() => import("./pages/admin/charts/LineCharts.jsx"));
+const Barcharts = lazy(() => import("./Pages/admin/charts/BarCharts.jsx"));
+const Piecharts = lazy(() => import("./Pages/admin/charts/PieCharts.jsx"));
+const Linecharts = lazy(() => import("./Pages/admin/charts/LineCharts.jsx"));
 
 // 4. Admin Apps (Inside /apps folder)
-const Coupon = lazy(() => import("./pages/admin/apps/Coupon.jsx"));
-const Stopwatch = lazy(() => import("./pages/admin/apps/Stopwatch.jsx"));
-const Toss = lazy(() => import("./pages/admin/apps/Toss.jsx"));
+const Coupon = lazy(() => import("./Pages/admin/apps/Coupon.jsx"));
+const Stopwatch = lazy(() => import("./Pages/admin/apps/Stopwatch.jsx"));
+const Toss = lazy(() => import("./Pages/admin/apps/Toss.jsx"));
 
 // 5. Admin Management (Inside /management folder)
-const NewProduct = lazy(() => import("./pages/admin/management/NewProduct.jsx"));
-const ProductManagement = lazy(() => import("./pages/admin/management/ProductManagement.jsx"));
-const TransactionManagement = lazy(() => import("./pages/admin/management/TransactionManagement.jsx"));
-
+const NewProduct = lazy(() => import("./Pages/admin/management/NewProduct.jsx"));
+const ProductManagement = lazy(() => import("./Pages/admin/management/ProductManagement.jsx"));
+const TransactionManagement = lazy(() => import("./Pages/admin/management/TransactionManagement.jsx"));
+const Shipping = lazy(() => import("./Pages/Shipping.jsx"));
 function App() {
   return (
     <Router>
@@ -38,7 +38,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/search" element={<Search />} />
-
+           {/* LoggedIn Routes */}
+          <Route path="/shipping" element={<Shipping />} />
           {/* Admin Routes - Dashboard */}
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/product" element={<Products />} />
