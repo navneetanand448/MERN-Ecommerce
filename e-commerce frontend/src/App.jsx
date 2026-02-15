@@ -28,6 +28,7 @@ const NewProduct = lazy(() => import("./Pages/admin/management/NewProduct.jsx"))
 const ProductManagement = lazy(() => import("./Pages/admin/management/ProductManagement.jsx"));
 const TransactionManagement = lazy(() => import("./Pages/admin/management/TransactionManagement.jsx"));
 const Shipping = lazy(() => import("./Pages/Shipping.jsx"));
+const Login = lazy(() => import("./Pages/Login.jsx"));
 function App() {
   return (
     <Router>
@@ -38,6 +39,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/login" element={<Login />} />
            {/* LoggedIn Routes */}
           <Route path="/shipping" element={<Shipping />} />
           {/* Admin Routes - Dashboard */}

@@ -1,11 +1,15 @@
 
 @use "./mixin" as *;
-@use "./home.scss"
+@use "./home.scss";
+@use "./shipping.scss";
 @use "./admin/dashboard";
 @use "./admin/product";
 @use "./admin/chart";
 @use "./admin/dashboardapp";
 @use "./admin/mediaquery";
+@use "./shipping";
+@use "./login";
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
