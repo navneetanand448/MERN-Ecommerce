@@ -1,8 +1,12 @@
-import express from 'express';
-const app=express();
-const port=8000;
-import userRoute from "./routes/user";
-app.use("/api/v1/user",userRoute);
-app.listen(port,()=>{
-  console.log(`server is running on ${port}`);
-})
+import express from "express";
+import userRoute from "./routes/user.js";
+
+const app = express();
+
+app.use(express.json());
+
+app.use("/api/user", userRoute);
+
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
+});

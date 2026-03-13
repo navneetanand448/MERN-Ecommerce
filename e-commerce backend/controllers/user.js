@@ -1,8 +1,10 @@
-import { User } from "../models/user";
-export const newUser=async(req,res,next)=>{
-  try{
-    const {name,email,photo,gender,role,_id,dob}=req.body;
-    const user=await.User.create({
+import {User} from "../models/user.js";
+
+export const newUser = async (req, res, next) => {
+  try {
+    const { name, email, photo, gender, role, _id, dob } = req.body;
+
+    const user = await User.create({
       name,
       photo,
       dob,
@@ -11,10 +13,17 @@ export const newUser=async(req,res,next)=>{
       gender,
       email,
     });
+
     return res.status(200).json({
-      success:"true",
-      message:`welcome,${User.name}`
-    })
+      success: true,
+      message: `Welcome ${user.name}`,
+      user,
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
-  catch(error){}
-}
+};

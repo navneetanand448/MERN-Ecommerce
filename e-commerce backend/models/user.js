@@ -3,6 +3,11 @@ import validator from "validator";
 
 const schema = new mongoose.Schema(
   {
+    _id: {
+      type: String,
+      required: [true, "Please enter ID"],
+    },
+
     name: {
       type: String,
       required: [true, "Please enter Name"],
@@ -10,7 +15,7 @@ const schema = new mongoose.Schema(
 
     email: {
       type: String,
-      unique: true,
+      unique: [true, "Email already Exist"],
       required: [true, "Please enter Email"],
       validate: [validator.isEmail, "Please enter valid Email"],
     },
@@ -41,9 +46,11 @@ const schema = new mongoose.Schema(
     timestamps: true,
   }
 );
-schema.virtual("age").get(function(){
-    const today = new Date();
+
+schema.virtual("age").get(function () {
+  const today = new Date();
   const dob = this.dob;
+
   let age = today.getFullYear() - dob.getFullYear();
 
   if (
@@ -54,5 +61,6 @@ schema.virtual("age").get(function(){
   }
 
   return age;
-})
+});
+
 export const User = mongoose.model("User", schema);
